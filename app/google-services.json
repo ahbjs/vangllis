@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "464554290500",
+    "project_id": "vangllis",
+    "storage_bucket": "vangllis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464554290500:android:ac6f3b5a7fe7255f60bb11",
+        "android_client_info": {
+          "package_name": "com.bcal.www.vangills"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464554290500-4ho2kmf8hl3v7re9tojtn99hg8q56o5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe12KVJQw3FBtUfVmSJ_6XFeuzL79_O8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464554290500-4ho2kmf8hl3v7re9tojtn99hg8q56o5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

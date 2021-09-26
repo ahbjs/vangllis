@@ -4,9 +4,10 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,11 +16,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import com.bcal.www.vangills.insert.*;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<RecyclerData> recyclerDataArrayList;
+
+    DatabaseReference reff;
+    InsertItem item;
+    InsertOrder order;
+    InsertDeliveryOrders deliverORder;
+    InsertDeliverStatus deliverStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
 
         recyclerView=findViewById(R.id.idCourseRV);
 
@@ -61,6 +70,47 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        /*item = new InsertItem();
+
+        reff = FirebaseDatabase.getInstance().getReference().child("items");
+
+        item.setProductName("Anchor Milk");
+        item.setAvailableUnits(100);
+        item.setUnitType("Kg");
+        item.setPrice(700);
+
+        reff.push().setValue(item);*/
+
+        /*order = new InsertOrder();
+
+        reff = FirebaseDatabase.getInstance().getReference().child("orders");
+
+        order.setName("Avishka Hiran");
+        order.setCity("Eheliyagoda");
+        order.setStreet("201/Welfare road");
+        order.setPhoneNo1("078785475847");
+        order.setPhoneNo2("34683274823");
+
+        reff.push().setValue(order);
+
+
+        deliverORder = new InsertDeliveryOrders();
+
+        reff = FirebaseDatabase.getInstance().getReference().child("deliverList");
+
+        deliverORder.setOrderNumber("123");
+        deliverORder.setDeliverPerson("Kasub Kumara");
+
+        reff.push().setValue(deliverORder);
+
+
+       /* deliverStatus = new InsertDeliverStatus();
+        reff = FirebaseDatabase.getInstance().getReference().child("deliverStatus");
+
+        deliverStatus.setOrderID("125");
+        deliverStatus.setDeliverTime(new Date());
+
+        reff.push().setValue(deliverStatus);*/
 
     }
 
