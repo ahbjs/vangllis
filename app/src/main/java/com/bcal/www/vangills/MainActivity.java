@@ -4,13 +4,19 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,9 +25,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.bcal.www.vangills.insert.*;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "";
     private RecyclerView recyclerView;
     private ArrayList<RecyclerData> recyclerDataArrayList;
 
@@ -52,29 +60,50 @@ public class MainActivity extends AppCompatActivity {
         // created new array list..
         recyclerDataArrayList=new ArrayList<>();
 
+        reff = FirebaseDatabase.getInstance().getReference().child("items");
+        reff.keepSynced(true);
+        item = new InsertItem();
+
+        reff.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                recyclerDataArrayList.add(new RecyclerData("DSA",R.drawable.anchor,snapshot.child("productName").getValue().toString()));
+                genItem();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                recyclerDataArrayList.add(new RecyclerData("DSA",R.drawable.anchor,snapshot.child("productName").getValue().toString()));
+                genItem();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        
         // added data to array list
-        recyclerDataArrayList.add(new RecyclerData("DSA",R.drawable.anchor,"Anchor"));
+        /*recyclerDataArrayList.add(new RecyclerData("DSA",R.drawable.anchor,"Anchor"));
         recyclerDataArrayList.add(new RecyclerData("JAVA",R.drawable.anchor,"Anchor"));
         recyclerDataArrayList.add(new RecyclerData("C++",R.drawable.anchor,"Anchor"));
         recyclerDataArrayList.add(new RecyclerData("Python",R.drawable.anchor,"Anchor"));
-        recyclerDataArrayList.add(new RecyclerData("Node Js",R.drawable.anchor,"Anchor"));
+        recyclerDataArrayList.add(new RecyclerData("Node Js",R.drawable.anchor,"Anchor"));*/
 
-        // added data from arraylist to adapter class.
-        RecyclerViewAdapter adapter=new RecyclerViewAdapter(recyclerDataArrayList,this);
+       /* item = new InsertItem();
 
-        // setting grid layout manager to implement grid view.
-        // in this method '2' represents number of columns to be displayed in grid view.
-        GridLayoutManager layoutManager=new GridLayoutManager(this,2);
 
-        // at last set adapter to recycler view.
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
-        /*item = new InsertItem();
-
-        reff = FirebaseDatabase.getInstance().getReference().child("items");
-
-        item.setProductName("Anchor Milk");
+        item.setProductName("Highland Milk");
         item.setAvailableUnits(100);
         item.setUnitType("Kg");
         item.setPrice(700);
@@ -112,6 +141,19 @@ public class MainActivity extends AppCompatActivity {
 
         reff.push().setValue(deliverStatus);*/
 
+    }
+
+    public void genItem(){
+        // added data from arraylist to adapter class.
+        RecyclerViewAdapter adapter=new RecyclerViewAdapter(recyclerDataArrayList,this);
+
+        // setting grid layout manager to implement grid view.
+        // in this method '2' represents number of columns to be displayed in grid view.
+        GridLayoutManager layoutManager=new GridLayoutManager(this,2);
+
+        // at last set adapter to recycler view.
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

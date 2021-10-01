@@ -1,6 +1,8 @@
 package com.bcal.www.vangills;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         RecyclerData recyclerData = courseDataArrayList.get(position);
         holder.courseTV.setText(recyclerData.getTitle());
         holder.courseIV.setImageResource(recyclerData.getImgid());
-        holder.courseTV.setText(recyclerData.getProductName());
+        holder.productName.setText(recyclerData.getProductName());
     }
 
     @Override
@@ -50,11 +52,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private ImageView courseIV;
         private TextView productName;
 
+
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
+
             courseTV = itemView.findViewById(R.id.idTVCourse);
             courseIV = itemView.findViewById(R.id.idIVcourseIV);
             productName = itemView.findViewById(R.id.productName);
+
         }
     }
 }
