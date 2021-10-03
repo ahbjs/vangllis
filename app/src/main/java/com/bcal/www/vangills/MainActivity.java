@@ -29,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "";
     private RecyclerView recyclerView;
     private ArrayList<RecyclerData> recyclerDataArrayList;
 
@@ -67,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
         reff.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                recyclerDataArrayList.add(new RecyclerData("DSA",R.drawable.anchor,snapshot.child("productName").getValue().toString()));
+                recyclerDataArrayList.add(new RecyclerData(R.drawable.loading,snapshot.child("productName").getValue().toString(),snapshot.child("url").getValue().toString(),snapshot.child("price").getValue().toString()));
                 genItem();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                recyclerDataArrayList.add(new RecyclerData("DSA",R.drawable.anchor,snapshot.child("productName").getValue().toString()));
+                recyclerDataArrayList.add(new RecyclerData(R.drawable.loading,snapshot.child("productName").getValue().toString(),snapshot.child("url").getValue().toString(),snapshot.child("price").getValue().toString()));
                 genItem();
             }
 

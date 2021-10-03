@@ -20,14 +20,8 @@
             android:layout_height="145dp"
             app:layout_column="0"
             app:layout_row="1"
-            android:src="@drawable/anchor" />
+            android:src="@drawable/ic_launcher_background" />
 
-        <TextView
-            android:id="@+id/idTVCourse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/productName"
@@ -39,11 +33,11 @@
             android:textSize="14dp" />
 
         <TextView
-
+            android:id="@+id/price"
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:layout_height="wrap_content"
-            android:text="Rs.700"
+            android:text="Rs.000"
             android:textColor="@color/colorPrimaryDark"
             android:textFontWeight="600"
             android:textSize="14dp"

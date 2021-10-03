@@ -2,16 +2,25 @@ package com.bcal.www.vangills;
 
 public class RecyclerData {
 
-    private String title;
     private int imgid;
     private String productName;
+    private String imgUrl;
+    private String price;
 
-    public String getTitle() {
-        return title;
+    public String getPrice() {
+        return price;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getProductName() {
@@ -30,9 +39,10 @@ public class RecyclerData {
         this.imgid = imgid;
     }
 
-    public RecyclerData(String title, int imgid,String productName) {
-        this.title = title;
+    public RecyclerData(int imgid,String productName,String imageUrl,String price) {
         this.imgid = imgid;
         this.productName = productName;
+        this.imgUrl = imageUrl;
+        this.price = price;
     }
 }

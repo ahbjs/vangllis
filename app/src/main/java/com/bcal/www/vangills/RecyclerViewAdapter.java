@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
@@ -34,9 +37,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         // Set the data to textview and imageview.
         RecyclerData recyclerData = courseDataArrayList.get(position);
-        holder.courseTV.setText(recyclerData.getTitle());
         holder.courseIV.setImageResource(recyclerData.getImgid());
+        Glide.with(mcontext).load(recyclerData.getImgUrl()).into(holder.courseIV);
+
         holder.productName.setText(recyclerData.getProductName());
+        holder.price.setText("Rs."+recyclerData.getPrice());
+
     }
 
     @Override
@@ -48,17 +54,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     // View Holder Class to handle Recycler View.
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView courseTV;
         private ImageView courseIV;
         private TextView productName;
+        private TextView price;
 
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            courseTV = itemView.findViewById(R.id.idTVCourse);
             courseIV = itemView.findViewById(R.id.idIVcourseIV);
             productName = itemView.findViewById(R.id.productName);
+            price = itemView.findViewById(R.id.price);
 
         }
     }
