@@ -67,13 +67,13 @@ public class MainActivity extends AppCompatActivity {
         reff.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                recyclerDataArrayList.add(new RecyclerData(R.drawable.loading,snapshot.child("productName").getValue().toString(),snapshot.child("url").getValue().toString(),snapshot.child("price").getValue().toString()));
+                recyclerDataArrayList.add(new RecyclerData(R.drawable.loading,snapshot.child("productName").getValue().toString(),snapshot.child("url").getValue().toString(),snapshot.child("price").getValue().toString(),Integer.parseInt(snapshot.child("id").getValue().toString())));
                 genItem();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                recyclerDataArrayList.add(new RecyclerData(R.drawable.loading,snapshot.child("productName").getValue().toString(),snapshot.child("url").getValue().toString(),snapshot.child("price").getValue().toString()));
+                recyclerDataArrayList.add(new RecyclerData(R.drawable.loading,snapshot.child("productName").getValue().toString(),snapshot.child("url").getValue().toString(),snapshot.child("price").getValue().toString(),Integer.parseInt(snapshot.child("id").getValue().toString())));
                 genItem();
             }
 
@@ -179,7 +179,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewProduct(View view) {
+
         Intent intent = new Intent(this, ViewProduct.class);
+
+        intent.putExtra("id",view.getId());
+
         startActivity(intent);
+
     }
 }

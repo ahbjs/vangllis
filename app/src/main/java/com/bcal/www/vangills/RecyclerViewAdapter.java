@@ -1,11 +1,13 @@
 package com.bcal.www.vangills;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return new RecyclerViewHolder(view);
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         // Set the data to textview and imageview.
@@ -42,6 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.productName.setText(recyclerData.getProductName());
         holder.price.setText("Rs."+recyclerData.getPrice());
+        holder.viewBtn.setId(recyclerData.getItemID());
 
     }
 
@@ -57,6 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private ImageView courseIV;
         private TextView productName;
         private TextView price;
+        private Button viewBtn;
 
 
         public RecyclerViewHolder(@NonNull View itemView) {
@@ -65,6 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             courseIV = itemView.findViewById(R.id.idIVcourseIV);
             productName = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.price);
+            viewBtn = itemView.findViewById(R.id.viewBtn);
 
         }
     }

@@ -6,6 +6,15 @@ public class RecyclerData {
     private String productName;
     private String imgUrl;
     private String price;
+    private int itemID;
+
+    public int getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
+    }
 
     public String getPrice() {
         return price;
@@ -39,10 +48,11 @@ public class RecyclerData {
         this.imgid = imgid;
     }
 
-    public RecyclerData(int imgid,String productName,String imageUrl,String price) {
+    public RecyclerData(int imgid,String productName,String imageUrl,String price,int itemID) {
         this.imgid = imgid;
         this.productName = productName;
         this.imgUrl = imageUrl;
         this.price = price;
+        this.itemID = itemID;
     }
 }

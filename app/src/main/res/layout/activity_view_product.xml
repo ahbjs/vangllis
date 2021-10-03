@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -29,10 +29,10 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/productTitle"
+                    android:text="000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Anchor Milk Powder"
                     android:textFontWeight="1000"
                     android:textAlignment="center"
                     android:layout_alignParentRight="true"
@@ -55,8 +55,175 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            android:layout_margin="10dp">
 
+            <ImageView
+                android:id="@+id/productImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/loading"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="000"
+                    android:id="@+id/productName"
+                    android:textAlignment="center"
+                    android:background="#FFD429"
+                    android:padding="10dp"
+                    android:textFontWeight="1000"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="60dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="PRICE"
+                        android:textSize="15dp"
+                        android:textColor="#000"
+                        />
+
+                    <TextView
+                        android:id="@+id/productPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="000"
+                        android:textSize="15dp"
+                        android:textColor="#000"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="60dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="AVAILABLE"
+                        android:textSize="15dp"
+                        android:textColor="#000"
+                        />
+
+                    <TextView
+                        android:id="@+id/units"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="000"
+                        android:textSize="15dp"
+                        android:textColor="#000"
+                        />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/itemCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="25dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/unitType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Type"
+                    android:textColor="#000"
+                    android:textAlignment="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <Button
+                        android:id="@+id/plus"
+                        android:layout_width="0dp"
+                        android:layout_weight=".50"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="+"
+                        android:background="@drawable/plus_btn"
+                        android:textSize="40dp"
+                        android:layout_marginRight="5dp"
+                        android:shadowColor="#ffffff"
+                        android:onClick="plusItem"
+                        />
+
+                    <Button
+                        android:id="@+id/mynus"
+                        android:layout_width="0dp"
+                        android:layout_weight=".50"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="-"
+                        android:background="@drawable/mynus_btn"
+                        android:textSize="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:padding="0dp"
+                        android:shadowColor="#ffffff"
+                        android:onClick="mynusItem"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="47dp"
+            android:text="Add to Cart"
+            android:background="#414141"
+            android:textColor="#fff"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="addCart"
+            />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
