@@ -51,6 +51,7 @@
             android:text="View"
             android:layout_marginTop="10dp"
             android:textColor="#fff"
+            android:onClick="viewProduct"
             android:background="@color/colorPrimaryDark"/>
 
     </LinearLayout>

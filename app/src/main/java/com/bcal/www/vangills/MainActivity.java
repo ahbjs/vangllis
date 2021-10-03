@@ -1,5 +1,6 @@
 package com.bcal.www.vangills;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -175,5 +176,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void viewProduct(View view) {
+        Intent intent = new Intent(this, ViewProduct.class);
+        startActivity(intent);
     }
 }

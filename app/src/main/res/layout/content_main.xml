@@ -21,14 +21,22 @@
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="114dp" >
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="13dp"
+                >
+
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
                 android:text="Vangills"
                 android:textFontWeight="1000"
                 android:textAlignment="center"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
                 android:textColor="#414141"
                 android:textSize="18dp" />
 
@@ -36,28 +44,32 @@
                 android:id="@+id/manuBtn"
                 android:layout_width="35dp"
                 android:layout_height="36dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="8dp"
                 android:background="@drawable/ic_menu_black_24dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:layout_alignParentLeft="true"
+                />
 
             <Button
                 android:id="@+id/cartBtn"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:layout_marginLeft="330dp"
-                android:layout_marginTop="13dp"
                 android:background="@drawable/shopping_cart_icon"
-                android:textColor="#FFFFFF" />
+                android:layout_marginRight="40dp"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentRight="true"
+                />
 
             <Button
                 android:id="@+id/personBtn"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:layout_marginLeft="370dp"
-                android:layout_marginTop="13dp"
                 android:background="@drawable/person_icon"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:layout_alignParentRight="true"
+                />
+
+            </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
