@@ -28,17 +28,17 @@
                 android:padding="13dp"
                 >
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vangills"
-                android:textFontWeight="1000"
-                android:textAlignment="center"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentLeft="true"
-                android:textColor="#414141"
-                android:textSize="18dp" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:text="Vangills"
+                    android:textAlignment="center"
+                    android:textColor="#414141"
+                    android:textFontWeight="1000"
+                    android:textSize="18dp" />
 
             <Button
                 android:id="@+id/manuBtn"
@@ -49,15 +49,14 @@
                 android:layout_alignParentLeft="true"
                 />
 
-            <Button
-                android:id="@+id/cartBtn"
-                android:layout_width="29dp"
-                android:layout_height="29dp"
-                android:background="@drawable/shopping_cart_icon"
-                android:layout_marginRight="40dp"
-                android:textColor="#FFFFFF"
-                android:layout_alignParentRight="true"
-                />
+                <Button
+                    android:id="@+id/cartBtn"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/shopping_cart_icon"
+                    android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/personBtn"
@@ -75,8 +74,48 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/idCourseRV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp" />
+
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Order ID"/>-->
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/edit_OrderID"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Customer ID"/>-->
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/edit_cusID"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Number of items"/>-->
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/edit_Noitems"/>-->
+
+
+
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/btn_submit"-->
+<!--            android:background="@android:color/holo_blue_dark"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:text="Submit"/>-->
+
+
 
     </LinearLayout>
 

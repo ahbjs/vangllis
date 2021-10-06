@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewProduct"></activity>
+        <activity
+            android:name=".orderlist"
+            android:exported="true" />
+        <activity
+            android:name=".activity_add_order"
+            android:exported="true" />
+        <activity android:name=".ViewProduct" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

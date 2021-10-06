@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<RecyclerData> recyclerDataArrayList;
+
+    private Button btnred;
 
     DatabaseReference reff;
     InsertItem item;
@@ -45,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         /*Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
+
+        btnred = (Button) findViewById(R.id.btn_reroute);
+        btnred.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAddOrder();
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +153,12 @@ public class MainActivity extends AppCompatActivity {
         reff.push().setValue(deliverStatus);*/
 
     }
+
+    public void openAddOrder() {
+        Intent intent = new Intent(this, orderlist.class);
+        startActivity(intent);
+    }
+
 
     public void genItem(){
         // added data from arraylist to adapter class.
